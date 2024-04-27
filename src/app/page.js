@@ -1,16 +1,16 @@
 'use client';
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 import Form from '@/components/Form';
 import Header from '@/components/Header';
 import TODOHero from '@/components/TODOHero';
 import TODOList from '@/components/TODOList';
 
-function Home() {
-  const [todos, setTodos] = React.useState([]);
+export default function Home() {
+  const [todos, setTodos] = useState([]);
 
   // Retrieve data from localStorage when component mounts
-  React.useEffect(() => {
+  useEffect(() => {
     const storedTodos = localStorage.getItem('todos');
     if (storedTodos) {
       setTodos(JSON.parse(storedTodos));
@@ -28,5 +28,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;
